@@ -1,20 +1,112 @@
-<!-- exam-login.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Login to Exam</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Secure Exam Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(120deg, #4c6ef5, #15aabf);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4c6ef5;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #364fc7;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .form-container {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h2>Start Your Exam</h2>
 
-  <form action="https://your-n8n-domain.com/webhook/exam-login" method="POST">
-    <label>Username:</label><br>
-    <input type="text" name="username" required><br><br>
+  <form class="form-container" action="https://mohamedalisaada.app.n8n.cloud/webhook-test/exam1" method="POST">
+    <h2>Secure Exam Access</h2>
 
-    <label>Password:</label><br>
-    <input type="password" name="password" required><br><br>
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input name="name" id="name" required>
+    </div>
 
-    <button type="submit">Login</button>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input name="email" id="email" type="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input name="password" id="password" type="password" required>
+    </div>
+
+    <button type="submit">Enter Exam</button>
   </form>
 
 </body>
