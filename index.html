@@ -171,15 +171,15 @@
                     submitText.textContent = 'Sign In';
                     submitLoader.classList.add('hidden');
                     
-                    if (response.ok) {
-                        // Successful submission
-                        showError('Welcome to Exam', 'success');
+                    if (response.ok && data.success) {
+                        // Successful submission from n8n
+                        showError(data.message || 'Login successful!', 'success');
                         
                         // Here you would typically redirect the user or perform other actions
-                        // window.location.href = '/dashboard';
+                        // window.location.href = data.redirectUrl || '/dashboard';
                     } else {
-                        // Handle errors from the server
-                        showError(data.message || 'An error occurred during login');
+                        // Handle errors from n8n webhook
+                        showError(data.error || data.message || 'An error occurred during login');
                     }
                 } catch (error) {
                     // Hide loading state
